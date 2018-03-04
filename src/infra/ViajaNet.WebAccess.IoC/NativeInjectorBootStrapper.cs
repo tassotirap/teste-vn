@@ -6,20 +6,36 @@
     using ViajaNet.WebAccess.Application.Interfaces;
     using ViajaNet.WebAccess.Application.Services;
     using ViajaNet.WebAccess.CrossCutting.Bus;
+    using ViajaNet.WebAccess.Data.Options;
+    using ViajaNet.WebAccess.Data.Repositories;
     using ViajaNet.WebAccess.Domain.Core.Bus;
+    using ViajaNet.WebAccess.Domain.EventHandlers;
     using ViajaNet.WebAccess.Domain.Events;
+    using ViajaNet.WebAccess.Domain.Repositories;
+    using Microsoft.Extensions.Configuration;
+    using ViajaNet.WebAccess.Domain.Services.Interfaces;
+    using ViajaNet.WebAccess.Domain.Services;
 
     public class NativeInjectorBootStrapper
     {
-        public static void RegisterServices(IServiceCollection services)
+        public static void RegisterServices(IServiceCollection services, IConfiguration configuration)
         {
-            var rabbitMQBusWebAccess = new RabbitMQBus<WebAccessRegister>("WebAccessRegister", "WebAccessRegistered");
+            services.Configure<RabbitMQOptions>(configuration.GetSection("RabbitMQ"));
+            services.AddSingleton<IEventEmitter<WebAccessRegister>, RabbitMQEventEmitter<WebAccessRegister>>();
+            services.AddSingleton<IEventSubscriber<WebAccessRegister>, RabbitMQEventSubscriber<WebAccessRegister>>();
 
-            services.AddSingleton<IEventHandler<WebAccessRegister>>(rabbitMQBusWebAccess);
+            services.AddSingleton<IEventRecived<WebAccessRegister>, WebAccessEventHandler>();
 
-            services.AddScoped<IMapper>(sp => new Mapper(AutoMapperConfig.RegisterMappings()));
+            services.Configure<CouchbaseOptions>(configuration.GetSection("Couchbase"));
+            services.AddSingleton<IWebAccessRepository, WebAccessRepository>();            
+
+            services.AddSingleton<IMapper>(sp => new Mapper(AutoMapperConfig.RegisterMappings()));
+
+            services.AddSingleton<IWebAccessService, WebAccessService>();
 
             services.AddScoped<IWebAccessAppService, WebAccessAppService>();
+
+            
         }
     }
 }

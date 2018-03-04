@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\domain\ViajaNet.WebAccess.Domain\ViajaNet.WebAccess.Domain.csproj" />
     <ProjectReference Include="..\..\infra\ViajaNet.WebAccess.CrossCutting.Bus\ViajaNet.WebAccess.CrossCutting.Bus.csproj" />
+    <ProjectReference Include="..\..\infra\ViajaNet.WebAccess.Data\ViajaNet.WebAccess.Data.csproj" />
   </ItemGroup>
 
 </Project>

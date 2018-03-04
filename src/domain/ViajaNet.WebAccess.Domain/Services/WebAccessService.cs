@@ -1,8 +1,11 @@
-﻿using ViajaNet.WebAccess.Domain.Repositories;
-using ViajaNet.WebAccess.Domain.Services.Interfaces;
-
-namespace ViajaNet.WebAccess.Domain.Services
+﻿namespace ViajaNet.WebAccess.Domain.Services
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using ViajaNet.WebAccess.Domain.Repositories;
+    using ViajaNet.WebAccess.Domain.Services.Interfaces;
+    using ViajaNet.WebAccess.Domain.Views;
+
     public class WebAccessService : IWebAccessService
     {
         private readonly IWebAccessRepository webAccessRepository;
@@ -12,9 +15,16 @@ namespace ViajaNet.WebAccess.Domain.Services
             this.webAccessRepository = webAccessRepository;
         }
 
-        public void Insert(Models.WebAccess webAccess)
+        public async Task<IEnumerable<BrowserView>> GetBrowsersKPI()
         {
-            this.webAccessRepository.Insert(webAccess);
+            return await this.webAccessRepository.GetBrowsersKPI();
         }
+
+        public async Task Insert(Models.WebAccess webAccess)
+        {
+            await this.webAccessRepository.Insert(webAccess);
+        }
+
+         
     }
 }

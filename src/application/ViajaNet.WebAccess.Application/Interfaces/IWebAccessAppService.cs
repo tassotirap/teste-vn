@@ -1,9 +1,12 @@
-﻿using ViajaNet.WebAccess.Application.ViewModel;
-
-namespace ViajaNet.WebAccess.Application.Interfaces
+﻿namespace ViajaNet.WebAccess.Application.Interfaces
 {
+    using System.Threading.Tasks;
+    using ViajaNet.WebAccess.Application.ViewModel;
+
     public interface IWebAccessAppService
     {
-        void Register(WebAccessViewModel webAccessViewModel);
+        Task Register(WebAccessViewModel webAccessViewModel);
+
+        Task<WebAccessKPIViewModel> GetKPI();
     }
 }

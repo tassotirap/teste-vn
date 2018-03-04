@@ -4,6 +4,7 @@
     using System;
     using ViajaNet.WebAccess.Application.ViewModel;
     using ViajaNet.WebAccess.Domain.Events;
+    using ViajaNet.WebAccess.Domain.Views;
 
     public class ViewModelMappingProfile : Profile
     {
@@ -18,6 +19,8 @@
                     IP = c.IP,
                     Browser = c.Browser
                 }));
+
+            CreateMap<BrowserView, BrowserKPIViewModel>();
         }
     }
 }

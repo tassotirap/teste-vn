@@ -12,17 +12,23 @@ namespace ViajaNet.Tests
         [Fact]
         public async Task Test1()
         {
-            var bus = new RabbitMQBus<WebAccessRegister>("WebAccessRegister", "WebAccessRegistered");
+            //var bus = new RabbitMQEventEmitter<WebAccessRegister>();
 
-            foreach (var i in Enumerable.Range(0, 5))
-            {
-                await bus.RaiseEvent(new WebAccessRegister(new WebAccess.Domain.Models.WebAccess
-                {
-                    Data = DateTime.Now,
-                    IP = "127.0.0.1",
+            //foreach (var i in Enumerable.Range(0, 5))
+            //{
+            //    await bus.Emit(new WebAccessRegister(new WebAccess.Domain.Models.WebAccess
+            //    {
+            //        Data = DateTime.Now,
+            //        IP = "127.0.0.1",
 
-                }));
-            }
+            //    }));
+            //}
+        }
+
+        [Fact]
+        public async Task Test2()
+        {
+            //CouchbaseRepository.Connect();
         }
     }
 }

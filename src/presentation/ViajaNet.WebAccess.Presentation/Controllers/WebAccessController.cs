@@ -4,7 +4,7 @@
     using ViajaNet.WebAccess.Application.Interfaces;
     using ViajaNet.WebAccess.Application.ViewModel;
 
-    [Route("api/[controller]")]
+    [Route("api/web-access")]
     public class WebAccessController : Controller
     {
         private readonly IWebAccessAppService webAccessAppService;
@@ -14,17 +14,16 @@
             this.webAccessAppService = webAccessAppService;
         }
 
-        // POST api/values
         [HttpPost]
         public IActionResult Post([FromBody] WebAccessViewModel webAccessViewModel)
         {
             if (ModelState.IsValid)
             {
                 this.webAccessAppService.Register(webAccessViewModel);
-                return Ok();
+                return Ok("Inserido com sucesso.");
             }
 
-            return BadRequest();
+            return BadRequest(ModelState);
         }
     }
 }
