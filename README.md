@@ -21,7 +21,7 @@
 	Map:
 	function (doc, meta) {
 		var date = new Date(doc.data);
-		var newDate = new Date(date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":00:00")
+		var newDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), 0, 0);
 		emit(newDate, 1);
 	}
 	
