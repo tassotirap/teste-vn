@@ -26,5 +26,17 @@
                 Value = t.Value
             });
         }
+
+        public async Task<IEnumerable<AccessPerHourView>> GetAccessPerHourKPI()
+        {
+            var query = new ViewQuery().From(this.Options.Value.DesignDoc, "webaccess-time").FullSet().Group(true);
+            var result = await this.Query<dynamic>(query);
+
+            return result.Rows.Select(t => new AccessPerHourView
+            {
+                Key = t.Key,
+                Value = t.Value
+            });
+        }
     }
 }

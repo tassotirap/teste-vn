@@ -12,7 +12,7 @@
         public string Url { get; set; }
 
         [Required(ErrorMessage = "The Location is Required")]
-        [MinLength(5)]
+        [MinLength(1)]
         [MaxLength(255)]
         public string Location { get; set; }
 

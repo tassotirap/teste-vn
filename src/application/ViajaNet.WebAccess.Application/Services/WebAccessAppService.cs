@@ -36,9 +36,13 @@
             var browserKPI = await this.webAccessService.GetBrowsersKPI();
             var browserKPIViewModel = this.mapper.Map<IEnumerable<BrowserKPIViewModel>>(browserKPI);
 
+            var acessPerHourKPI = await this.webAccessService.GetAccessPerHourKPI();
+            var accessPerHourViewModel = this.mapper.Map<IEnumerable<AccessPerHourViewModel>>(acessPerHourKPI);
+
             return new WebAccessKPIViewModel
             {
-                BrowserKPIViewModel = browserKPIViewModel
+                BrowserKPI = browserKPIViewModel,
+                AcessPerHourKPI = acessPerHourKPI
             };
         }
     }

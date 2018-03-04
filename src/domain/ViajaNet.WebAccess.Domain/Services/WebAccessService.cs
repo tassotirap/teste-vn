@@ -20,6 +20,11 @@
             return await this.webAccessRepository.GetBrowsersKPI();
         }
 
+        public async Task<IEnumerable<AccessPerHourView>> GetAccessPerHourKPI()
+        {
+            return await this.webAccessRepository.GetAccessPerHourKPI();
+        }
+
         public async Task Insert(Models.WebAccess webAccess)
         {
             await this.webAccessRepository.Insert(webAccess);

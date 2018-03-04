@@ -39,7 +39,7 @@
 
             var body = Encoding.UTF8.GetBytes(jsonObject);
 
-            await Task.Run(() => channel.BasicPublish(this.options.Value.Exchange, string.Empty, null, body));
+            channel.BasicPublish(this.options.Value.Exchange, string.Empty, null, body);
         }
 
         private void CreateExchange()

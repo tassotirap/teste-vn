@@ -33,9 +33,7 @@
 
             services.AddSingleton<IWebAccessService, WebAccessService>();
 
-            services.AddScoped<IWebAccessAppService, WebAccessAppService>();
-
-            
+            services.AddScoped<IWebAccessAppService, WebAccessAppService>();            
         }
     }
 }

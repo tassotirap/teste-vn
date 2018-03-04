@@ -27,8 +27,11 @@
             this.listEventRecived = new List<IEventRecived<T>>();
             this.options = options;
 
-            this.CreateChannel();
-            this.CreateConsumer();
+            if (options.Value.ConsumerEnabled)
+            {
+                this.CreateChannel();
+                this.CreateConsumer();
+            }
         }
 
         public void Dispose()
@@ -69,7 +72,7 @@
 
             this.channel.QueueBind(this.options.Value.QueueName, this.options.Value.Exchange, string.Empty, null);
 
-            this.channel.BasicQos(0, 20, false);
+            this.channel.BasicQos(0, 100, false);
 
             var consumer = new AsyncEventingBasicConsumer(channel);
             consumer.Received += async (ch, ea) =>

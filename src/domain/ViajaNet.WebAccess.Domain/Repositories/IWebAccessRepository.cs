@@ -9,5 +9,7 @@
         Task Insert(Models.WebAccess webAccess);
 
         Task<IEnumerable<BrowserView>> GetBrowsersKPI();
+
+        Task<IEnumerable<AccessPerHourView>> GetAccessPerHourKPI();
     }
 }

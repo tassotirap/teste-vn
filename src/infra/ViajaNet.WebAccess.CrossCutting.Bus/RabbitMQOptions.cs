@@ -7,5 +7,7 @@
         public string Exchange { get; set; }
 
         public string QueueName { get; set; }
+
+        public bool ConsumerEnabled { get; set; }
     }
 }

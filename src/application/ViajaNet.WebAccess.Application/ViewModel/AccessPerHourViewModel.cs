@@ -1,8 +1,10 @@
 ﻿namespace ViajaNet.WebAccess.Application.ViewModel
 {
-    public class BrowserKPIViewModel
+    using System;
+
+    public class AccessPerHourViewModel
     {
-        public string Key { get; set; }
+        public DateTime Key { get; set; }
 
         public long Value { get; set; }
     }

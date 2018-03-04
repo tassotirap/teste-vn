@@ -10,13 +10,11 @@
 
     public class ApiClient
     {
-        private readonly HttpClient client;
         private readonly Random random;
-        private int count;
+        private int count = 0;
 
         public ApiClient()
         {
-            this.client = new HttpClient();
             this.random = new Random();
         }
 
@@ -25,12 +23,14 @@
             while (true)
             {
                 var tasks = new List<Task>();
-                foreach(var index in Enumerable.Range(0, 30))
+                foreach(var index in Enumerable.Range(0, 10))
                 {
-                    tasks.Add(Post());
+                    tasks.Add(Task.Run(async () => await Post()));
                 }
 
                 Task.WaitAll(tasks.ToArray());
+
+                Console.Write($"\r{count}");
 
                 Thread.Sleep(10);
             }
@@ -47,9 +47,16 @@
                     IP = "127.0.0.1",
                     Browser = this.GetBrowser()
                 });
-                var response = await this.client.PostAsync("http://localhost:56014/api/web-access", jsonObj);
-                var data = await response.Content.ReadAsStringAsync();
-                Console.Write($"\r{Interlocked.Increment(ref this.count)}");
+                var response = await new HttpClient().PostAsync("http://localhost:56014/api/web-access", jsonObj);
+                if(response.IsSuccessStatusCode)
+                {
+                    Interlocked.Increment(ref this.count);
+                }
+                else
+                {
+                    Console.WriteLine(response.StatusCode);
+                }
+                            
             }
             catch (Exception ex)
             {
@@ -71,7 +78,7 @@
 
         private string GetBrowser()
         {
-            var items = new[] { "Chorme", "IE", "Opera", "Safari" };
+            var items = new[] { "Chorme", "IE", "Opera", "Safari", "Firefox" };
             return items[random.Next(items.Length)];
         }
     }

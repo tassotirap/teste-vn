@@ -21,6 +21,8 @@
                 }));
 
             CreateMap<BrowserView, BrowserKPIViewModel>();
+
+            CreateMap<AccessPerHourView, AccessPerHourViewModel>();
         }
     }
 }
