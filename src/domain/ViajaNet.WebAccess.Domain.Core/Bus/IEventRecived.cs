@@ -5,6 +5,8 @@
 
     public interface IEventRecived<T> where T : Event
     {
-        Task EventRecived(T @event);
+        Task EventRecivedAsync(T @event);
+
+        void EventRecived(T @event);
     }
 }

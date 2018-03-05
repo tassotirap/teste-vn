@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViajaNet.WebAccess.Domain.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViajaNet.WebAccess.CrossCutting.Bus", "infra\ViajaNet.WebAccess.CrossCutting.Bus\ViajaNet.WebAccess.CrossCutting.Bus.csproj", "{5CE67F9D-ED4D-4249-BBCE-954912CADFE9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViajaNet.Tests", "tests\ViajaNet.Tests\ViajaNet.Tests.csproj", "{373EEE8F-C95D-4841-837C-8E6A30A0EED6}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "presentation", "presentation", "{2A467449-100D-4FAE-A1BC-B2594AB92059}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViajaNet.WebAccess.Presentation", "presentation\ViajaNet.WebAccess.Presentation\ViajaNet.WebAccess.Presentation.csproj", "{97994262-1C07-42C3-962E-4A67F070D838}"
@@ -29,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViajaNet.WebAccess.Data", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViajaNet.WebAccess.Application", "application\ViajaNet.WebAccess.Application\ViajaNet.WebAccess.Application.csproj", "{1D3AB4A1-FD78-4E3C-97D2-BCAA6935445C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViajaNet.Test.DataInsert", "tests\ViajaNet.Test.DataInsert\ViajaNet.Test.DataInsert.csproj", "{74A25CFE-719E-48EC-B48F-08764EB723DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViajaNet.Test.DataInsert", "tests\ViajaNet.Test.DataInsert\ViajaNet.Test.DataInsert.csproj", "{74A25CFE-719E-48EC-B48F-08764EB723DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,10 +47,6 @@ Global
 		{5CE67F9D-ED4D-4249-BBCE-954912CADFE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CE67F9D-ED4D-4249-BBCE-954912CADFE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CE67F9D-ED4D-4249-BBCE-954912CADFE9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{373EEE8F-C95D-4841-837C-8E6A30A0EED6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{373EEE8F-C95D-4841-837C-8E6A30A0EED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{373EEE8F-C95D-4841-837C-8E6A30A0EED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{373EEE8F-C95D-4841-837C-8E6A30A0EED6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{97994262-1C07-42C3-962E-4A67F070D838}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{97994262-1C07-42C3-962E-4A67F070D838}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97994262-1C07-42C3-962E-4A67F070D838}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -81,7 +75,6 @@ Global
 		{6BA019C9-17BD-400C-95E6-7A948E3ED672} = {9D7BB9FD-96EB-415E-B5E2-82FCE95DAF0C}
 		{ADEAFEA9-9923-4CB4-9EA5-DDB162970AD3} = {9D7BB9FD-96EB-415E-B5E2-82FCE95DAF0C}
 		{5CE67F9D-ED4D-4249-BBCE-954912CADFE9} = {0A6C1CDA-B38E-46AE-9CCB-BA4C72D3AB9F}
-		{373EEE8F-C95D-4841-837C-8E6A30A0EED6} = {AB30D6F3-B6DE-49AE-AC17-78684265B666}
 		{97994262-1C07-42C3-962E-4A67F070D838} = {2A467449-100D-4FAE-A1BC-B2594AB92059}
 		{6F9FAF52-C174-45BB-A946-9242A62632E7} = {0A6C1CDA-B38E-46AE-9CCB-BA4C72D3AB9F}
 		{7398C7AF-E7C4-404F-B037-4E1766ED6F91} = {0A6C1CDA-B38E-46AE-9CCB-BA4C72D3AB9F}

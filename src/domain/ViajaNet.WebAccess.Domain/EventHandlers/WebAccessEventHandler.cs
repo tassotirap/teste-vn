@@ -15,7 +15,12 @@
             this.webAccessService = webAccessService;
         }
 
-        public async Task EventRecived(WebAccessRegister @event)
+        public void EventRecived(WebAccessRegister @event)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public async Task EventRecivedAsync(WebAccessRegister @event)
         {
             await this.webAccessService.Insert(@event.WebAccess);
         }

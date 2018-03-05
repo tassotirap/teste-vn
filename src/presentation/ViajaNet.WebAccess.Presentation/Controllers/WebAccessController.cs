@@ -1,7 +1,7 @@
 ﻿namespace ViajaNet.WebAccess.Presentation.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
-    using System;
+    using Microsoft.Extensions.Logging;
     using ViajaNet.WebAccess.Application.Interfaces;
     using ViajaNet.WebAccess.Application.ViewModel;
 
@@ -9,10 +9,14 @@
     public class WebAccessController : Controller
     {
         private readonly IWebAccessAppService webAccessAppService;
+        private readonly ILogger<WebAccessController> logger;
 
-        public WebAccessController(IWebAccessAppService webAccessAppService)
+        public WebAccessController(
+            IWebAccessAppService webAccessAppService,
+            ILogger<WebAccessController> logger)
         {
             this.webAccessAppService = webAccessAppService;
+            this.logger = logger;
         }
 
         [HttpPost]
@@ -21,9 +25,10 @@
             if (ModelState.IsValid)
             {
                 this.webAccessAppService.Register(webAccessViewModel);
+                this.logger.LogInformation("Registrado com sucesso");
                 return Ok("Inserido com sucesso.");
             }
-
+            this.logger.LogWarning("Invalid Request");
             return BadRequest(ModelState);
         }
     }

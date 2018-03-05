@@ -33,7 +33,7 @@
             this.connection?.Dispose();
         }
 
-        public async Task Emit(T @event)
+        public void Emit(T @event)
         {
             var jsonObject = JsonConvert.SerializeObject(@event);
 
@@ -55,6 +55,11 @@
             }.CreateConnection();
 
             this.channel = connection.CreateModel();
+        }
+
+        public Task EmitAsync(T @event)
+        {
+            throw new NotImplementedException();
         }
     }
 }

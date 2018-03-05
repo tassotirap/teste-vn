@@ -5,6 +5,8 @@
 
     public interface IEventEmitter<T> where T : Event
     {
-        Task Emit(T @event);
+        Task EmitAsync(T @event);
+
+        void Emit(T @event);
     }
 }

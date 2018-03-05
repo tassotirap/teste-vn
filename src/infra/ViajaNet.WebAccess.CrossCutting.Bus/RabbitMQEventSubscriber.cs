@@ -83,7 +83,7 @@
 
                 foreach (var eventRecived in listEventRecived)
                 {
-                    await eventRecived.EventRecived(@object);
+                    await eventRecived.EventRecivedAsync(@object);
                 }
 
                 channel.BasicAck(ea.DeliveryTag, false);
